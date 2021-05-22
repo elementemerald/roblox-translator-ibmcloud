@@ -16,7 +16,7 @@ local function getBase64()
     end;
 end;
 
-local apiKeySerialized = string.format("Basic %s", getBase64("apikey:" ..apiKey));
+local apiKeySerialized = string.format("Basic %s", getBase64()("apikey:" ..apiKey));
 
 local translateTo = "en";
 
