@@ -24,8 +24,6 @@ local translateMsg = function(v, msg)
     local parsed = HTTPService:JSONDecode(req.Body);
     local translateFrom = parsed.languages[1].language;
     
-    if translateFrom == "en" then print("Pretty sure the language was English, ignoring") return end;
-    
     -- Translate text
     
     local data = {
