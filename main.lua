@@ -5,18 +5,18 @@ local StarterGui = game:GetService("StarterGui");
 local serviceUrl = "";
 local apiKey = "";
 
-local function getBase64()
+local function getBase64(data)
     local exec = identifyexecutor();
     if exec == "ScriptWare" then
-        return crypt.base64encode;
+        return crypt.base64encode(data);
     elseif exec == "Synapse X" then
-        return syn.crypt.base64.encode;
+        return syn.crypt.base64.encode(data);
     else
-        return error("Your platform is not supported");
+        error("Your platform is not supported");
     end;
 end;
 
-local apiKeySerialized = string.format("Basic %s", getBase64()("apikey:" ..apiKey));
+local apiKeySerialized = string.format("Basic %s", getBase64("apikey:" ..apiKey));
 
 local translateTo = "en";
 
